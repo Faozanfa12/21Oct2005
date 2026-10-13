@@ -16,6 +16,13 @@ Deploy to any host that runs Node (Render, Railway, Fly.io, a VPS). Use HTTPS an
 Content and the activity log live in `server/data/db.json`; uploads live in `server/uploads/`.
 Back up both folders. On hosts with a temporary disk, attach a persistent volume to `server/data` and `server/uploads`.
 
+### Deploy on Render
+1. Push this repository to GitHub and import it in Render as a Blueprint.
+2. Set `ADMIN_PASSWORD` to a strong password of at least 8 characters when prompted. Render generates `SESSION_SECRET`.
+3. Deploy the `21oct2005` web service. The Blueprint builds the site and starts the Express server.
+
+The included Blueprint uses Render's free plan. Its filesystem is temporary, so admin edits, activity data, and uploaded files can be lost after a restart or redeploy. Use persistent storage for data you need to keep; GitHub Pages cannot run this app's Express API.
+
 ## Structure
 - `server/index.js` API, admin login, uploads, activity log (only dependency: express)
 - `src/views/` one file per page; `src/Admin.tsx` the editor; `src/api.ts` API client

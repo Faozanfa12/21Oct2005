@@ -1,4 +1,4 @@
-import { Heart, Sparkles, Volume2 } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 import type { Content } from "../types";
 import { Ph, triggerCelebrationConfetti } from "../components";
 import { sfx } from "../utils/audio";
@@ -51,12 +51,6 @@ export default function Opening({ c, onOpen }: { c: Content; onOpen: () => void 
             <span className="btn-text">Buka Kejutan Spesial Ulang Tahun</span>
             <Heart size={18} className="btn-icon fill-current" />
           </button>
-        </div>
-
-        {/* Gentle hint */}
-        <div className="hero-hint">
-          <Volume2 size={13} />
-          <span>Pengalaman terbaik dengan musik & layar penuh</span>
         </div>
       </div>
 

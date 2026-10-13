@@ -67,11 +67,11 @@ export default function Reasons({
       <div className="section-header-center">
         <div className="eyebrow-pill">
           <Heart size={12} className="text-rose fill-rose" />
-          <span>21 Things I Adore About You</span>
+          <span>21 hal tentang kamu</span>
         </div>
-        <h2 className="section-title">21 Hal yang Kusyukuri Darimu</h2>
+        <h2 className="section-title">21 hal yang aku suka dari kamu</h2>
         <p className="section-subtitle">
-          Dari ratusan kebaikan dan senyumanmu, inilah 21 hal manis yang selalu membuat hariku lebih indah.
+          Sebenarnya masih banyak lagi, tapi ini 21 yang langsung kepikiran.
         </p>
 
         {/* Progress Bar Container */}
@@ -81,7 +81,7 @@ export default function Reasons({
               {openedCount === total ? (
                 <span className="all-unlocked-badge">
                   <Trophy size={14} className="text-gold" />
-                  Semua 21 Alasan Telah Terbuka! ♡
+                  Kamu sudah buka semuanya! ♡
                 </span>
               ) : (
                 `Terbuka ${openedCount} dari ${total} Alasan`

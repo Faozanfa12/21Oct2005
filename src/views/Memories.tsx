@@ -56,11 +56,11 @@ export default function Memories({ c }: { c: Content }) {
       <div className="section-header-center">
         <div className="eyebrow-pill">
           <Sparkles size={12} className="text-gold" />
-          <span>Our Cherished Memories</span>
+          <span>Foto-foto kita</span>
         </div>
-        <h2 className="section-title">Kepingan Cerita Kita</h2>
+        <h2 className="section-title">Beberapa kenangan bareng kamu</h2>
         <p className="section-subtitle">
-          Setiap senyum, canda, dan detik bersamamu adalah lembaran berharga yang selalu kusimpan dalam ingatan.
+          Lihat lagi foto-foto ini, yuk. Semoga kamu masih ingat ceritanya.
         </p>
         <div className="memory-counter-badge">
           <span>{n} Foto Kenangan</span>

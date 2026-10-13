@@ -44,7 +44,7 @@ export default function Final({
           <span className="emblem-line" />
           <div className="emblem-badge">
             <Heart size={16} className="fill-rose text-rose" />
-            <span>Forever Cherished</span>
+            <span>Dengan sayang</span>
             <Sparkles size={14} className="text-gold" />
           </div>
           <span className="emblem-line" />
@@ -52,16 +52,15 @@ export default function Final({
 
         {/* Heading */}
         <h1 className="final-heading">
-          Di Antara Miliaran Manusia di Dunia,<br />
+          Dari sekian banyak orang di dunia,<br />
           <span className="italic-serif text-gradient">
-            Aku Begitu Bersyukur Mengenalmu.
+            aku senang kenal kamu.
           </span>
         </h1>
 
         {/* Description */}
         <p className="final-body-text">
-          Selamat ulang tahun ke-21, {c.name}. Kamu berhak atas segala hal indah, tenang, dan tulus yang ada di dunia ini.
-          Terima kasih sudah menjadi bagian terhangat dalam hidupku.
+          Selamat ulang tahun ke-21, {c.name}. Makasih sudah jadi bagian dari hidupku. Semoga tahun ini banyak hal baik datang buat kamu.
         </p>
 
         {/* Primary Hug Button */}
@@ -84,7 +83,7 @@ export default function Final({
             </div>
             <p className="hug-card-message">{c.hugMsg}</p>
             <div className="hug-card-sub">
-              <span>Selamat Ulang Tahun Ke-21, Sayangku</span>
+              <span>Selamat ulang tahun ke-21, Zahwa!</span>
             </div>
           </div>
         )}

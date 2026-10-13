@@ -19,12 +19,12 @@ export default function Home({ c, go }: { c: Content; go: (v: ViewId) => void })
         <div className="home-story">
           <div className="eyebrow-pill">
             <Sparkles size={12} className="text-gold" />
-            <span>Spesial Untuk {c.name}</span>
+            <span>Hari spesialnya {c.name}</span>
           </div>
 
           <h1 className="home-heading">
-            Dunia Kecil,<br />
-            <span className="italic-serif text-gradient">Dibuat Khusus Untukmu.</span>
+            Hari ini,<br />
+            <span className="italic-serif text-gradient">tentang kamu.</span>
           </h1>
 
           <div className="ornamental-divider">
@@ -37,7 +37,7 @@ export default function Home({ c, go }: { c: Content; go: (v: ViewId) => void })
           <div className="home-message-card">
             <div className="quote-mark">❝</div>
             <p className="home-message-text">{c.homeMsg}</p>
-            <div className="quote-author">— Dari yang selalu mendoakanmu</div>
+            <div className="quote-author">— Dari aku</div>
           </div>
 
           {/* Highlights / Quick Metric Cards */}

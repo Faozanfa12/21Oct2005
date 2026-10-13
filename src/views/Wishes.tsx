@@ -48,17 +48,17 @@ export default function Wishes({ c, go }: { c: Content; go: (v: ViewId) => void 
       <div className="section-header-center">
         <div className="eyebrow-pill">
           <Sparkles size={12} className="text-gold" />
-          <span>Doa & Harapan Babak 21</span>
+          <span>Harapan buat umur 21</span>
         </div>
         <h2 className="section-title">
-          Untuk Babak ke-21 yang <span className="italic-serif text-gradient">Luar Biasa</span>
+          Semoga tahun ini <span className="italic-serif text-gradient">baik buat kamu</span>
         </h2>
         <p className="section-subtitle">
-          Semoga setiap langkah di usia yang baru ini dipenuhi oleh kedamaian, keberanian, dan kebahagiaan yang melimpah.
+          Ini beberapa hal yang aku harap terjadi buat kamu tahun ini.
         </p>
 
         <button className="expand-toggle-btn" onClick={expandAll}>
-          {openSet.size === c.wishes.length ? "Tutup Semua Doa" : "Buka Semua Doa"}
+          {openSet.size === c.wishes.length ? "Tutup semua" : "Buka semua"}
         </button>
       </div>
 
@@ -81,7 +81,7 @@ export default function Wishes({ c, go }: { c: Content; go: (v: ViewId) => void 
                 </div>
 
                 <div className="wish-title-text">
-                  <span className="wish-number">Doa #{i + 1}</span>
+                  <span className="wish-number">Harapan #{i + 1}</span>
                   <h3 className="wish-title">{w.t}</h3>
                 </div>
 
@@ -109,7 +109,7 @@ export default function Wishes({ c, go }: { c: Content; go: (v: ViewId) => void 
             go("fin");
           }}
         >
-          <span>Halaman Terakhir Dari Hatiku</span>
+          <span>Lanjut ke pesan terakhir</span>
           <ArrowRight size={16} />
         </button>
       </div>

@@ -49,11 +49,11 @@ export default function Letter({ c, onDone }: { c: Content; onDone: () => void }
       <div className="section-header-center">
         <div className="eyebrow-pill">
           <Mail size={12} className="text-gold" />
-          <span>Surat Dari Lubuk Hati</span>
+          <span>Sedikit pesan buat kamu</span>
         </div>
         <h2 className="section-title">Untuk Zahwa Rahma Nisa</h2>
         <p className="section-subtitle">
-          Kata-kata yang kutulis perlahan, untuk merayakan betapa berartinya kehadiranmu.
+          Aku mau bilang sesuatu, sebelum kita lanjut ke bagian berikutnya.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export default function Letter({ c, onDone }: { c: Content; onDone: () => void }
             <div className="letter-envelope-body">
               <span className="envelope-to">Tertuju Untuk:</span>
               <span className="envelope-name">{c.name}</span>
-              <span className="envelope-stamp">Chapter 21 · With Love</span>
+              <span className="envelope-stamp">Buat kamu, dengan sayang</span>
             </div>
           </div>
 

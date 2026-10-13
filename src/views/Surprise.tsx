@@ -41,9 +41,9 @@ export default function Surprise({
           <Gift size={12} className="text-gold" />
           <span>Kejutan Khusus Ulang Tahun</span>
         </div>
-        <h2 className="section-title">Sesuatu Spesial Untukmu</h2>
+        <h2 className="section-title">Ada sesuatu buat kamu</h2>
         <p className="section-subtitle">
-          Sebuah ungkapan kasih yang disiapkan dengan segenap doa dan ketulusan hati.
+          Aku sudah menyiapkan sedikit kejutan. Coba buka kadonya!
         </p>
       </div>
 
@@ -87,7 +87,7 @@ export default function Surprise({
 
           <p className="gift-tap-hint">
             <Sparkles size={14} className="text-gold" />
-            <span>Sentuh kado di atas untuk membuka kejutannya</span>
+            <span>Tekan kadonya untuk dibuka</span>
             <Sparkles size={14} className="text-gold" />
           </p>
         </div>

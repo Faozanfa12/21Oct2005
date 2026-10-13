@@ -18,7 +18,7 @@ export default function Opening({ c, onOpen }: { c: Content; onOpen: () => void 
         {/* Milestone Pill Badge */}
         <div className="celebration-pill">
           <Sparkles size={14} className="text-gold" />
-          <span>A Milestone Chapter · 21st Birthday</span>
+          <span>Selamat ulang tahun ke-21</span>
           <Sparkles size={14} className="text-gold" />
         </div>
 
@@ -71,12 +71,12 @@ export default function Opening({ c, onOpen }: { c: Content; onOpen: () => void 
         {/* Floating Accent Badges */}
         <div className="floating-badge badge-top-right">
           <Sparkles size={13} className="text-gold" />
-          <span>My Favorite Person</span>
+          <span>Orang favoritku</span>
         </div>
 
         <div className="floating-badge badge-bottom-left">
           <Heart size={13} className="text-rose fill-rose" />
-          <span>21 Years of Grace</span>
+          <span>21 tahun Zahwa</span>
         </div>
       </div>
     </section>

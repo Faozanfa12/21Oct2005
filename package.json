@@ -8,6 +8,7 @@
     "dev:server": "node --watch server/index.js",
     "dev:web": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --mode pages",
     "start": "node server/index.js --production"
   },
   "dependencies": {

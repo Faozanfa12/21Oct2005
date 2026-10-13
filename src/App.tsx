@@ -18,6 +18,13 @@ import { Heart, Lock, Sparkles } from "lucide-react";
 import { sfx } from "./utils/audio";
 
 type Phase = "loading" | "locked" | "ready" | "error";
+const STATIC_SITE = import.meta.env.MODE === "pages";
+
+function pageMedia(url: string) {
+  return url.startsWith("/uploads/")
+    ? `${import.meta.env.BASE_URL}${url.slice(1)}`
+    : url;
+}
 
 function Site() {
   const [phase, setPhase] = useState<Phase>("loading");
@@ -31,9 +38,25 @@ function Site() {
 
   const load = useCallback(async () => {
     try {
-      const r = await api.content();
-      setC(r.content);
-      setOpened(new Set(r.opened));
+      if (STATIC_SITE) {
+        const response = await fetch(`${import.meta.env.BASE_URL}content.json`);
+        if (!response.ok) throw new Error(`Failed to load site content (${response.status})`);
+        const r = (await response.json()) as { content: Content; opened: number[] };
+        const content = r.content;
+        content.portrait = pageMedia(content.portrait);
+        content.music = pageMedia(content.music);
+        content.gift.photo = pageMedia(content.gift.photo);
+        content.memories = content.memories.map((memory) => ({
+          ...memory,
+          src: pageMedia(memory.src),
+        }));
+        setC(content);
+        setOpened(new Set(r.opened));
+      } else {
+        const r = await api.content();
+        setC(r.content);
+        setOpened(new Set(r.opened));
+      }
       setPhase("ready");
     } catch (e) {
       setPhase((e as { status?: number }).status === 401 ? "locked" : "error");
@@ -77,7 +100,7 @@ function Site() {
 
   const onReason = (n: number) => {
     setOpened((s) => new Set(s).add(n));
-    api.event("reason", n);
+    if (!STATIC_SITE) api.event("reason", n);
   };
 
   const submitCode = async () => {
@@ -186,7 +209,7 @@ function Site() {
             c={c}
             onOpen={() => {
               go("home");
-              api.event("visit");
+              if (!STATIC_SITE) api.event("visit");
               if (c.music && !playing) {
                 // Try initiating audio on gesture
                 if (!audio.current) {
@@ -201,10 +224,10 @@ function Site() {
         {view === "home" && <Home c={c} go={go} />}
         {view === "memories" && <Memories c={c} />}
         {view === "reasons" && <Reasons c={c} opened={opened} onOpen={onReason} />}
-        {view === "letter" && <Letter c={c} onDone={() => api.event("letter_done")} />}
-        {view === "surprise" && <Surprise c={c} go={go} onOpen={() => api.event("gift_opened")} />}
+        {view === "letter" && <Letter c={c} onDone={() => { if (!STATIC_SITE) api.event("letter_done"); }} />}
+        {view === "surprise" && <Surprise c={c} go={go} onOpen={() => { if (!STATIC_SITE) api.event("gift_opened"); }} />}
         {view === "wishes" && <Wishes c={c} go={go} />}
-        {view === "fin" && <Final c={c} onHug={() => api.event("hug")} restart={() => go("open")} />}
+        {view === "fin" && <Final c={c} onHug={() => { if (!STATIC_SITE) api.event("hug"); }} restart={() => go("open")} />}
       </main>
 
       {/* Floating Vinyl Music Widget */}
@@ -227,5 +250,16 @@ export default function App() {
     return () => removeEventListener("hashchange", handleHash);
   }, []);
 
+  if (hash === "#admin" && STATIC_SITE) {
+    return (
+      <main className="gate-modern">
+        <div className="gate-card">
+          <h1 className="gate-title">Editor tidak tersedia</h1>
+          <p className="gate-text">Versi GitHub Pages adalah situs statis. Untuk mengubah konten, edit file konten di repository lalu deploy ulang.</p>
+          <a className="btn-modern-primary" href={import.meta.env.BASE_URL}>Kembali ke situs</a>
+        </div>
+      </main>
+    );
+  }
   return hash === "#admin" ? <Admin /> : <Site />;
 }

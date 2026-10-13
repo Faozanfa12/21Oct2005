@@ -9,19 +9,12 @@
 4. Run `npm run dev`, then open http://localhost:5173
 5. Open http://localhost:5173/#admin to edit everything and upload photos and music.
 
-## Put it online
-Set `ADMIN_PASSWORD` (8+ characters) and `SESSION_SECRET` in `.env` or the host environment, then run
-`npm run build` and `npm start` (serves the built site and the API on PORT, default 3000).
-Deploy to any host that runs Node (Render, Railway, Fly.io, a VPS). Use HTTPS and keep `.env` out of git.
-Content and the activity log live in `server/data/db.json`; uploads live in `server/uploads/`.
-Back up both folders. On hosts with a temporary disk, attach a persistent volume to `server/data` and `server/uploads`.
+## Deploy on GitHub Pages
+The GitHub Actions workflow builds and deploys the static site whenever changes are pushed to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. After the workflow completes, the site is available at `https://<owner>.github.io/21Oct2005/`.
 
-### Deploy on Render
-1. Push this repository to GitHub and import it in Render as a Blueprint.
-2. Set `ADMIN_PASSWORD` to a strong password of at least 8 characters when prompted. Render generates `SESSION_SECRET`.
-3. Deploy the `21oct2005` web service. The Blueprint builds the site and starts the Express server.
+The Pages version reads its public content from `public/content.json` and media from `public/uploads/`. It does not run the Express API, so the admin editor, guest-code gate, uploads, and activity log are unavailable. Update the JSON and media files in the repository and push to publish content changes. Anyone can access the site and its published content.
 
-The included Blueprint uses Render's free plan. Its filesystem is temporary, so admin edits, activity data, and uploaded files can be lost after a restart or redeploy. Use persistent storage for data you need to keep; GitHub Pages cannot run this app's Express API.
+To use the admin editor and backend features, deploy the Node/Express app to a host that supports server-side applications instead of GitHub Pages.
 
 ## Structure
 - `server/index.js` API, admin login, uploads, activity log (only dependency: express)

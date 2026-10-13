@@ -10,7 +10,7 @@
 5. Open http://localhost:5173/#admin to edit everything and upload photos and music.
 
 ## Deploy on GitHub Pages
-The GitHub Actions workflow builds and deploys the static site whenever changes are pushed to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. After the workflow completes, the site is available at `https://<owner>.github.io/21Oct2005/`.
+The GitHub Actions workflow builds the site and publishes the generated files to the `gh-pages` branch whenever changes are pushed to `main`. In repository settings, set **Pages → Build and deployment → Source** to **Deploy from a branch**, then select **gh-pages** and **/(root)**. After the workflow completes, the site is available at `https://<owner>.github.io/21Oct2005/`.
 
 The Pages version reads its public content from `public/content.json` and media from `public/uploads/`. It does not run the Express API, so the admin editor, guest-code gate, uploads, and activity log are unavailable. Update the JSON and media files in the repository and push to publish content changes. Anyone can access the site and its published content.
 
